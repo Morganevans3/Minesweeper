@@ -1,0 +1,90 @@
+Index: cmake-build-debug/main.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/main.cpp b/cmake-build-debug/main.cpp
+--- a/cmake-build-debug/main.cpp	
++++ b/cmake-build-debug/main.cpp	(date 1681930122128)
+@@ -25,8 +25,9 @@
+     std::getline(file, num_mine);
+     int num_mines = stoi(num_mine);
+     //test(columns, rows, font);
+-    //string player = welcome_window(columns, rows, font);
+     string player = "name";
++    //player = welcome_window(columns, rows, font);
++
+     if (player == "0") {
+         return 1;
+     }
+@@ -65,6 +66,8 @@
+ 
+     sf::Texture mine_image;
+     mine_image.loadFromFile("files/images/mine.png");
++    mine_image.setSmooth(true);
++    mine_image.setRepeated(false);
+     textured_map.emplace("mine_image", mine_image);
+ 
+     sf::Texture flag;
+@@ -189,8 +192,10 @@
+     digit_map.emplace(10, d10);
+ 
+ 
+-    game_window(columns, rows, num_mines, font, player, textured_map, digit_map);
+ 
++
++    game_window(columns, rows, 5, font, player, textured_map, digit_map);
++    //test(columns, rows, font);
+ 
+     /*
+ 
+Index: local_history.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/local_history.patch b/local_history.patch
+new file mode 100644
+--- /dev/null	(date 1681958233802)
++++ b/local_history.patch	(date 1681958233802)
+@@ -0,0 +1,40 @@
++Index: cmake-build-debug/main.cpp
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/cmake-build-debug/main.cpp b/cmake-build-debug/main.cpp
++--- a/cmake-build-debug/main.cpp	
+++++ b/cmake-build-debug/main.cpp	(date 1681930122128)
++@@ -25,8 +25,9 @@
++     std::getline(file, num_mine);
++     int num_mines = stoi(num_mine);
++     //test(columns, rows, font);
++-    //string player = welcome_window(columns, rows, font);
++     string player = "name";
+++    //player = welcome_window(columns, rows, font);
+++
++     if (player == "0") {
++         return 1;
++     }
++@@ -65,6 +66,8 @@
++ 
++     sf::Texture mine_image;
++     mine_image.loadFromFile("files/images/mine.png");
+++    mine_image.setSmooth(true);
+++    mine_image.setRepeated(false);
++     textured_map.emplace("mine_image", mine_image);
++ 
++     sf::Texture flag;
++@@ -189,8 +192,10 @@
++     digit_map.emplace(10, d10);
++ 
++ 
++-    game_window(columns, rows, num_mines, font, player, textured_map, digit_map);
++ 
+++
+++    game_window(columns, rows, 5, font, player, textured_map, digit_map);
+++    //test(columns, rows, font);
++ 
++     /*
++ 
